@@ -7,8 +7,9 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="provider8001" />
         <module name="springcloud-api" />
+        <module name="provider8001" />
+        <module name="springcloud-eureka" />
         <module name="consumer" />
       </profile>
     </annotationProcessing>
