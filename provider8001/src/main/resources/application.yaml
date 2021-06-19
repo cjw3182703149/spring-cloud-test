@@ -13,3 +13,17 @@ spring:
     url: jdbc:mysql://localhost:3306/test?useUnicode=true&characterEncoding=utf-8
     username: root
     password: 575827443
+
+# Eureka的配置：服务注册到哪里
+eureka:
+  client:
+    service-url: # 就是在eureka那里的url地址
+      defaultZone: http://localhost:7001/eureka/
+  instance:
+    instance-id: provider #修改默认描述信息
+
+# info配置
+info:
+  app.name: springcloud-test
+  company.name:
+
