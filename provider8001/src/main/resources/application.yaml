@@ -18,7 +18,8 @@ spring:
 eureka:
   client:
     service-url: # 就是在eureka那里的url地址
-      defaultZone: http://localhost:7001/eureka/
+      #defaultZone: http://localhost:7001/eureka/
+      defaultZone: http://localhost:7001/eureka/,http://e1:7002/eureka/,http://e2:7003/eureka/
   instance:
     instance-id: provider #修改默认描述信息
 

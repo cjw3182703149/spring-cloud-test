@@ -12,6 +12,8 @@
         <module>provider8001</module>
         <module>consumer</module>
         <module>springcloud-eureka</module>
+        <module>eureka7002</module>
+        <module>eureka7003</module>
     </modules>
 
     <!-- 打包方式 -->

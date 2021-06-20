@@ -11,6 +11,8 @@
         <module name="provider8001" />
         <module name="springcloud-eureka" />
         <module name="consumer" />
+        <module name="eureka7002" />
+        <module name="eureka7003" />
       </profile>
     </annotationProcessing>
   </component>
