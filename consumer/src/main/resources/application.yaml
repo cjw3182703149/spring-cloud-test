@@ -1,2 +1,13 @@
 server:
   port: 8080
+# Eureka配置
+eureka:
+  client:
+    register-with-eureka: true #不向eureka注册自己
+    service-url:
+      defaultZone: http://localhost:7001/eureka/,http://e1:7002/eureka/,http://e2:7003/eureka/
+  instance:
+    instance-id: consumer #修改默认描述信息
+spring:
+  application:
+    name: consumer
