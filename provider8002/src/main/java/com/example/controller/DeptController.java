@@ -4,7 +4,7 @@ import com.example.pojo.Dept;
 import com.example.service.DeptService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.ServiceInstance;
-import org.springframework.cloud.client.discovery.DiscoveryClient; // 注意一下是这个包下的
+import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
@@ -29,7 +29,7 @@ public class DeptController {
 
     @GetMapping("/dept/get/{id}")
     public Dept queryById(@PathVariable Long id) {
-        System.out.println("8001");
+        System.out.println("8002");
         return deptService.queryById(id);
     }
 

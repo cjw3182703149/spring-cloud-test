@@ -1,5 +1,5 @@
 server:
-  port: 8001
+  port: 8002
 mybatis:
   type-aliases-package: com.example.pojo
   mapper-locations: classpath:/com/example/*.xml
@@ -21,7 +21,7 @@ eureka:
       defaultZone: http://localhost:7002/eureka/
       #defaultZone: http://localhost:7001/eureka/,http://e1:7002/eureka/,http://e2:7003/eureka/
   instance:
-    instance-id: provider2 #修改默认描述信息
+    instance-id: provider #修改默认描述信息
 
 # info配置
 info:
