@@ -1,47 +1,22 @@
 package com.example;
 
 import java.io.*;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.util.Properties;
 
 public class Test {
-    public static void main(String[] args) {
-        ObjectOutputStream objectOutputStream = null;
-        try {
-            // 序列化
-            objectOutputStream = new ObjectOutputStream(new FileOutputStream(new File("consumer//src//main//resources//1.txt")));
-            objectOutputStream.writeObject(new String("我在这里"));//写入
-            objectOutputStream.flush();//刷新缓存
-            objectOutputStream.writeObject(new Person("我",20));
-        } catch (IOException e) {
-            e.printStackTrace();
-        } finally {
-            if (objectOutputStream != null) {
-                try {
-                    objectOutputStream.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
+    public static void main(String[] args) throws NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException, NoSuchFieldException, ClassNotFoundException, IOException {
+        Class<Person> personClass = Person.class;
+        // 调用对应的运行时类的对象,调用的是无参构造器
+        Person person = personClass.newInstance();
 
-        //反序列化
-        ObjectInputStream objectInputStream = null;
-        try {
-            objectInputStream = new ObjectInputStream(new FileInputStream("consumer//src//main//resources//1.txt"));
-            try {
-                Object object = objectInputStream.readObject();
-                object = (String)object;
-                System.out.println(object);
-                Object object2 = objectInputStream.readObject();
-                object2 = (Person)object2;
-                System.out.println(object2.toString());
-            } catch (ClassNotFoundException e) {
-                e.printStackTrace();
-            }
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
+}
+class Creature<T> implements Serializable {
+    
 }
 class Person implements Serializable{
     // 序列版本号,尽量显式的写出来
@@ -79,5 +54,9 @@ class Person implements Serializable{
                 "name='" + name + '\'' +
                 ", age=" + age +
                 '}';
+    }
+
+    public void show() {
+        System.out.println("show");
     }
 }

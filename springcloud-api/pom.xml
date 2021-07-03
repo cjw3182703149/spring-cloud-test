@@ -13,6 +13,12 @@
 
     <!-- 当前的model自己需要的依赖，如果父依赖已经配置了依赖，这里就不需要写了 -->
     <dependencies>
+        <!-- feign -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-feign</artifactId>
+            <version>1.4.6.RELEASE</version>
+        </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>

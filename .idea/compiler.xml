@@ -8,6 +8,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="springcloud-api" />
+        <module name="springcloud-consumer-dept-feign" />
         <module name="springcloud-eureka" />
         <module name="eureka7002" />
         <module name="eureka7003" />
