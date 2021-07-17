@@ -11,7 +11,7 @@ import java.util.List;
 
 // 增加与服务提供者一样的方法，value=服务者ID
 @Component
-@FeignClient(value = "PROVIDER")
+@FeignClient(value = "PROVIDER", fallbackFactory = DeptClientServiceFallbackFactory.class)
 public interface DeptClientService {
     @GetMapping("/dept/get/{id}")
     Dept queryById(@PathVariable("id") Long id);

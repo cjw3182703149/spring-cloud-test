@@ -2,6 +2,7 @@ package com.example.controller;
 
 import com.example.pojo.Dept;
 import com.example.service.DeptService;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
@@ -27,10 +28,20 @@ public class DeptController {
         return deptService.addDept(dept);
     }
 
+    @HystrixCommand(fallbackMethod = "HqueryById")//失败了，就调用什么方法
     @GetMapping("/dept/get/{id}")
     public Dept queryById(@PathVariable Long id) {
-        System.out.println("8002");
-        return deptService.queryById(id);
+        Dept dept = deptService.queryById(id);
+        if (dept == null) {
+            throw new RuntimeException("ID:"+id+"不存在");
+        }
+        return dept;
+    }
+
+    // 备选方案
+    @GetMapping("/dept/get/{id}")
+    public Dept HqueryById(@PathVariable Long id) {
+        return new Dept().setDeptno(id).setDname("id不存在");
     }
 
     @GetMapping("/dept/queryall")
