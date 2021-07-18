@@ -16,6 +16,7 @@
         <module name="provider8002" />
         <module name="provider8001" />
         <module name="consumer" />
+        <module name="springboot-zuul" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>

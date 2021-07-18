@@ -28,7 +28,7 @@ public class DeptController {
         return deptService.addDept(dept);
     }
 
-    @HystrixCommand(fallbackMethod = "HqueryById")//失败了，就调用什么方法
+    @HystrixCommand(fallbackMethod = "hQueryById")//失败了，就调用什么方法
     @GetMapping("/dept/get/{id}")
     public Dept queryById(@PathVariable Long id) {
         Dept dept = deptService.queryById(id);
@@ -39,8 +39,7 @@ public class DeptController {
     }
 
     // 备选方案
-    @GetMapping("/dept/get/{id}")
-    public Dept HqueryById(@PathVariable Long id) {
+    public Dept hQueryById(@PathVariable Long id) {
         return new Dept().setDeptno(id).setDname("id不存在");
     }
 
