@@ -17,6 +17,7 @@
         <module name="provider8001" />
         <module name="consumer" />
         <module name="springboot-zuul" />
+        <module name="spring-config-server" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
